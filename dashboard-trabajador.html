@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouLeader | Mi espacio - Colaborador</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <header class="dashboard-header">
+    <div class="header-container">
+      <div class="logo-area">
+        <div class="logo-icon">💙</div>
+        <div class="logo-text">You<span class="logo-accent">Leader</span></div>
+        <span class="role-badge trabajador">👥 Colaborador</span>
+      </div>
+      <div class="user-info">
+        <i class="fas fa-user-circle"></i>
+        <span id="userNameDisplay"></span>
+        <span id="userTeamDisplay" class="team-badge"></span>
+        <button id="logoutBtn" class="logout-btn"><i class="fas fa-sign-out-alt"></i> Salir</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="dashboard-main">
+    <div class="container">
+      <!-- Banner de bienvenida -->
+      <div class="welcome-banner">
+        <div class="welcome-text">
+          <h2>¡Hola, <span id="welcomeName"></span>! 🌟</h2>
+          <p>Tu opinión es importante. Comparte cómo te sientes hoy para mejorar el ambiente laboral.</p>
+        </div>
+      </div>
+
+      <div class="two-columns">
+        <!-- COLUMNA IZQUIERDA: Estado de ánimo diario -->
+        <div class="panel mood-panel">
+          <div class="panel-header">
+            <i class="fas fa-face-smile"></i>
+            <h2>¿Cómo te sientes hoy?</h2>
+            <span class="badge-daily">Registro diario</span>
+          </div>
+          <p class="panel-description">Selecciona cómo te sientes en el trabajo hoy. Tu registro es anónimo para tu equipo, pero ayuda a mejorar el clima laboral.</p>
+          
+          <div class="mood-selector">
+            <div class="mood-option" data-mood="excelente">
+              <div class="mood-emoji">🤩</div>
+              <span>¡Excelente!</span>
+              <small>Me siento muy motivado</small>
+            </div>
+            <div class="mood-option" data-mood="bien">
+              <div class="mood-emoji">😊</div>
+              <span>Bien</span>
+              <small>Día normal, contento</small>
+            </div>
+            <div class="mood-option" data-mood="neutral">
+              <div class="mood-emoji">😐</div>
+              <span>Neutral</span>
+              <small>Ni bien ni mal</small>
+            </div>
+            <div class="mood-option" data-mood="estresado">
+              <div class="mood-emoji">😫</div>
+              <span>Estresado/a</span>
+              <small>Me siento con presión</small>
+            </div>
+            <div class="mood-option" data-mood="mal">
+              <div class="mood-emoji">😔</div>
+              <span>Mal</span>
+              <small>No ha sido un buen día</small>
+            </div>
+          </div>
+          
+          <div class="mood-stars">
+            <label>Califica tu nivel de motivación hoy (1-5 estrellas):</label>
+            <div class="stars" id="motivationStars">
+              <i class="far fa-star" data-value="1"></i>
+              <i class="far fa-star" data-value="2"></i>
+              <i class="far fa-star" data-value="3"></i>
+              <i class="far fa-star" data-value="4"></i>
+              <i class="far fa-star" data-value="5"></i>
+            </div>
+          </div>
+          
+          <div class="daily-note">
+            <label><i class="fas fa-pen"></i> ¿Algo que quieras compartir?</label>
+            <textarea id="dailyNote" rows="3" placeholder="Cuéntanos cómo te sientes, qué está pasando en tu trabajo, qué te gustaría mejorar..."></textarea>
+          </div>
+          
+          <button id="submitMoodBtn" class="btn-primary btn-block">
+            <i class="fas fa-cloud-sun"></i> Registrar mi estado de ánimo
+          </button>
+          <div id="moodToast" class="toast-message"></div>
+        </div>
+
+        <!-- COLUMNA DERECHA: Reconocimiento y frases -->
+        <div class="panel">
+          <div class="panel-header">
+            <i class="fas fa-hand-peace"></i>
+            <h2>Reconocimiento positivo</h2>
+          </div>
+          <p class="panel-description">Reconoce a un compañero o líder por su apoyo</p>
+          
+          <div class="recognition-form">
+            <input type="text" id="recogName" placeholder="Tu nombre (opcional)">
+            <input type="text" id="recogTo" placeholder="¿A quién quieres reconocer?">
+            <textarea id="recogMessage" rows="3" placeholder="Cuéntanos qué hizo para merecer tu reconocimiento..."></textarea>
+            <button id="sendRecognitionBtn" class="btn-outline btn-block">
+              <i class="fas fa-trophy"></i> Publicar reconocimiento
+            </button>
+          </div>
+          
+          <div class="recognition-feed">
+            <h3><i class="fas fa-history"></i> Reconocimientos recientes</h3>
+            <div id="recognitionList" class="recognition-list">
+              <!-- Se carga dinámicamente -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mi historial de estados de ánimo -->
+      <div class="panel my-history">
+        <div class="panel-header">
+          <i class="fas fa-chart-line"></i>
+          <h2>Mi historial de estado de ánimo</h2>
+        </div>
+        <div id="myMoodHistory" class="history-timeline">
+          <!-- Se carga dinámicamente -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="dashboard-footer">
+    <p>💙 YouLeader - Tu bienestar es lo más importante. Comparte cómo te sientes.</p>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
